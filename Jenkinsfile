@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        AWS_DEFAULT_REGION = 'eu-east-1'
+        AWS_DEFAULT_REGION = 'us-east-1'
     }
 
     stages {
@@ -17,7 +17,7 @@ pipeline {
         stage("Subiendo el archivo a S3") {
             steps {
                 script {
-                    withAWS(credentials: 'AWS', region: 'eu-east-1') {
+                    withAWS(credentials: 'AWS', region: 'us-east-1') {
                         s3Upload(file: 'archivo.txt', bucket: 'sprint7lab3', path: 'archivo.txt')
                     }
                 }
@@ -27,7 +27,7 @@ pipeline {
         stage("Descargando el archivo de S3") {
             steps {
                 script {
-                    withAWS(credentials: 'AWS', region: 'eu-east-1') {
+                    withAWS(credentials: 'AWS', region: 'us-east-1') {
                         s3Download(file: 'archivo.txt', bucket: 'sprint7lab3', path: 'archivo.txt', force: true)
                     }
                 }
