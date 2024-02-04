@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     withAWS(credentials: 'AWS', region: 'us-east-1') {
-                        s3Upload(file: 'archivo.txt', bucket: 'sprint7lab3', path: 'archivo.txt')
+                        s3Upload(file: 'archivo.txt', bucket: 'sprint7', path: 'archivo.txt')
                     }
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     withAWS(credentials: 'AWS', region: 'us-east-1') {
-                        s3Download(file: 'archivo.txt', bucket: 'sprint7lab3', path: 'archivo.txt', force: true)
+                        s3Download(file: 'archivo.txt', bucket: 'sprint7', path: 'archivo.txt', force: true)
                     }
                 }
             }
